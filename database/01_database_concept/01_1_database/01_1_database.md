@@ -20,7 +20,7 @@ ex) PostgreSQL, MySQL, ORACLE DATABASE, SQL Server
 
 Database + DBMS + Application
 
-![Simplified-database-system-Risunok-1-Uprosennaa-sistema-baz-dannyh-Slika.png](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_03_19_daily_certification%20940bb96a6a324c1b895ea83b61b8162b/Simplified-database-system-Risunok-1-Uprosennaa-sistema-baz-dannyh-Slika.png)
+![Simplified-database-system-Risunok-1-Uprosennaa-sistema-baz-dannyh-Slika.png](01_1_database/24_03_19_daily_certification%20940bb96a6a324c1b895ea83b61b8162b/Simplified-database-system-Risunok-1-Uprosennaa-sistema-baz-dannyh-Slika.png)
 
 ## Data Models
 
@@ -40,7 +40,7 @@ DB 구조를 **추상화해서 표현**할 수 있는 수단을 제공한다.
 
 - ER diagram
     
-    ![ER-Model.png](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_03_19_daily_certification%20940bb96a6a324c1b895ea83b61b8162b/ER-Model.png)
+    ![ER-Model.png](01_1_database/24_03_19_daily_certification%20940bb96a6a324c1b895ea83b61b8162b/ER-Model.png)
     
 
 ### **Logical Data Models**
@@ -53,17 +53,17 @@ DB 구조를 **추상화해서 표현**할 수 있는 수단을 제공한다.
     
     ORACLE, MySQL, SQL Server
     
-    ![091318_0803_RelationalD1.png](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_03_19_daily_certification%20940bb96a6a324c1b895ea83b61b8162b/091318_0803_RelationalD1.png)
+    ![091318_0803_RelationalD1.png](01_1_database/24_03_19_daily_certification%20940bb96a6a324c1b895ea83b61b8162b/091318_0803_RelationalD1.png)
     
 - Object Data Model
     
-    ![objectDataModel.png](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_03_19_daily_certification%20940bb96a6a324c1b895ea83b61b8162b/objectDataModel.png)
+    ![objectDataModel.png](01_1_database/24_03_19_daily_certification%20940bb96a6a324c1b895ea83b61b8162b/objectDataModel.png)
     
 - Object-Relational Data Model
     
     PostgreSQL
     
-    ![1280px-Object-Oriented_Model.svg.png](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_03_19_daily_certification%20940bb96a6a324c1b895ea83b61b8162b/1280px-Object-Oriented_Model.svg.png)
+    ![1280px-Object-Oriented_Model.svg.png](01_1_database/24_03_19_daily_certification%20940bb96a6a324c1b895ea83b61b8162b/1280px-Object-Oriented_Model.svg.png)
     
 
 ### **Physical Data Models**
@@ -87,7 +87,7 @@ DB의 실제 데이터는 꽤 자주 바뀜
 - 특정 시점에 DB에 있는 데이터를 Database State 또는 Snapshot이라고 한다.
 - DB에 있는 현재 instance의 집합이다.
 
-![scheme.png](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_03_19_daily_certification%20940bb96a6a324c1b895ea83b61b8162b/scheme.png)
+![scheme.png](01_1_database/24_03_19_daily_certification%20940bb96a6a324c1b895ea83b61b8162b/scheme.png)
 
 ## Three-Schema Architecture
 
@@ -101,7 +101,7 @@ Database System을 구축하는 Architecture 중 하나이자 대표격
 
 **어느 레벨에서의 변화가 상위 레벨에 영향을 주지 않기 위해서 사용한다.**
 
-![dbms-three-schema-architecture.png](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_03_19_daily_certification%20940bb96a6a324c1b895ea83b61b8162b/dbms-three-schema-architecture.png)
+![dbms-three-schema-architecture.png](01_1_database/24_03_19_daily_certification%20940bb96a6a324c1b895ea83b61b8162b/dbms-three-schema-architecture.png)
 
 ### Three Level
 
