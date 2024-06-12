@@ -18,7 +18,7 @@
 
 초기값은 x = 10, y = 20이다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled.png)
+![Untitled](03_4_transaction_isolation/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled.png)
 
 Transaction 1에서 y를 읽을 때, Transaction 2에서 commit되지 않은 y = 70 write 결과를 읽는다. 
 
@@ -32,7 +32,7 @@ Transaction 1에서 y를 읽을 때, Transaction 2에서 commit되지 않은 y =
 
 초기값은 x = 10이다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%201.png)
+![Untitled](03_4_transaction_isolation/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%201.png)
 
 Transaction 1에서 x를 두 번 읽는데 처음 읽을 때와 두 번째 읽을 때의 결과가 다르다. Transaction 2의 영향을 받은 것인데 이는 Transaction의 ACID 원칙 중 Isolation을 위배한 것이다. Isolation에 따르면 Transaction 1에서 x를 처음 읽었을 때와 두 번째 읽었을 때 모두 같은 값을 읽어야 한다.
 
@@ -44,7 +44,7 @@ Transaction 1에서 x를 두 번 읽는데 처음 읽을 때와 두 번째 읽�
 
 초기값은 t1(…, v = 10), t2(…, v = 50)이다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%202.png)
+![Untitled](03_4_transaction_isolation/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%202.png)
 
 Transaction 1에서 x를 두 번 읽는데 처음 읽었을 때는 tuple t1만 읽혔는데 Transaction 2가 실행된 후 두 번째로 읽었을 때는 tuple t1, t2가 읽히게 된다. 처음 읽었을 때는 없던 데이터가 생겼다.
 
@@ -64,7 +64,7 @@ Dirty Read, Non-repeatable Read, Phantom Read 모두 발생하지 않는 것이 
 
 Application 개발자는 Isolation Level에 따라 Throughput과 데이터 일관성 사이에 Trade를 한다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%203.png)
+![Untitled](03_4_transaction_isolation/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%203.png)
 
 - **Read Uncommited**
     - Dirty Read, Non-Repeatable Read, Phantom Read 세 가지를 모두 허용한다.
@@ -89,7 +89,7 @@ Application 개발자는 Isolation Level에 따라 Throughput과 데이터 일�
 
 초기 x는 0이다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%204.png)
+![Untitled](03_4_transaction_isolation/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%204.png)
 
 위 상황에서 Transaction 1을 rollback하면 x는 초기값인 0이 된다. Transaction 2가 실행되지 않은 것처럼 된다. 만약 Transaction 2가 commit된 후에도 Transaction 1이 rollback된다면, x는 0이 되어 Transaction 2는 commit됐음에도 실행되지 않은 것과 같은 결과를 낸다.
 
@@ -105,7 +105,7 @@ Application 개발자는 Isolation Level에 따라 Throughput과 데이터 일�
 
 초기 x는 50이다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%205.png)
+![Untitled](03_4_transaction_isolation/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%205.png)
 
 Transaction 1의 commit 결과 Transaction 2의 업데이트 내역은 반영되지 않는다. 매우 심각한 오류다.
 
@@ -119,7 +119,7 @@ Transaction 1의 commit 결과 Transaction 2의 업데이트 내역은 반영되
 
 초기 x = 50, y = 50이다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%206.png)
+![Untitled](03_4_transaction_isolation/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%206.png)
 
 x에서 y로 이체하므로 결국 x, y의 합은 100이 유지되어야 한다. 하지만 Transaction 2의 결과 x = 10, y = 50이므로 x + y = 60이 되어 정합성이 깨진다. Abort가 되지 않아도 Dirty Read가 가능하다.
 
@@ -131,7 +131,7 @@ x에서 y로 이체하므로 결국 x, y의 합은 100이 유지되어야 한다
 
 Dirty Read와 같은 예시를 다른 스케쥴로 보자.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%207.png)
+![Untitled](03_4_transaction_isolation/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%207.png)
 
 마찬가지로 Transaction 2의 결과 x = 50, y = 90이므로 x + y = 140이 되어 정합성이 깨진다.
 
@@ -143,7 +143,7 @@ Dirty Read와 같은 예시를 다른 스케쥴로 보자.
 
 초기 x = 50, y = 50이고 x + y ≥ 0 이라는 제약 사항이 있다고 가정하자.
 
-![Write_Skew.png](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Write_Skew.png)
+![Write_Skew.png](03_4_transaction_isolation/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Write_Skew.png)
 
 Transaction 1을 실행할 동안 x + y = 100이므로 x에서 80을 정상적으로 인출하고 commit한다. Transaction 2를 실행할 동안에도 x + y = 100이므로 y에서 90을 정상적으로 인출하고 commit한다. 하지만 결과는 x = -30, y = -40으로 합이 음수가 되어 제약 사항을 위반한다.
 
@@ -153,7 +153,7 @@ Serialized Schedule이었으면 최종 commit할 때 제약 사항을 위반하�
 
 없던 데이터가 생김
 
-![Phantom_Read2.png](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Phantom_Read2.png)
+![Phantom_Read2.png](03_4_transaction_isolation/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Phantom_Read2.png)
 
 **예시**
 
@@ -169,35 +169,35 @@ Transaction 1에서 v > 10인 데이터를 읽을 때는 해당하는 tuple이 �
 
 Transaction이 시작되는 시점을 Snapshot으로 관리한다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%208.png)
+![Untitled](03_4_transaction_isolation/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%208.png)
 
 Transaction 1 실행 시작 시점 Snapshot
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%209.png)
+![Untitled](03_4_transaction_isolation/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%209.png)
 
 40을 이체한 x의 결과를 DB가 아닌 Snapshot에 쓴다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%2010.png)
+![Untitled](03_4_transaction_isolation/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%2010.png)
 
 Transaction 2의 실행 시작 시점의 Snapshot
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%2011.png)
+![Untitled](03_4_transaction_isolation/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%2011.png)
 
 100을 입금한 y의 결과를 DB가 아닌 Snapshot에 쓴다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%2012.png)
+![Untitled](03_4_transaction_isolation/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%2012.png)
 
 Transaction 2가 commit했으므로 commit한 결과를 DB에 적용한다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%2013.png)
+![Untitled](03_4_transaction_isolation/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%2013.png)
 
 Transaction 1이 y를 읽을 경우 Transaction 1 시작 시점의 Snapshot에서 읽게 되므로 150이 아닌 50을 읽게 된다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%2014.png)
+![Untitled](03_4_transaction_isolation/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%2014.png)
 
 Transaction 1이 y에 40을 더한 값 90을 snapshot에 쓴다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%2015.png)
+![Untitled](03_4_transaction_isolation/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%2015.png)
 
 Transaction 1을 commit하려 할 때 Transaction 1과 Transaction 2는 같은 y에 대해 write하므로 충돌이 일어난다. 만약 Transaction 1의 결과를 반영한다면 Transaction 2의 결과는 사라지는 Lost Update가 발생한다.
 
@@ -209,7 +209,7 @@ Transaction 1을 commit하려 할 때 Transaction 1과 Transaction 2는 같은 y
 
 **먼저 commit된 Transaction 결과 외에는 Abort한다.**
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%2016.png)
+![Untitled](03_4_transaction_isolation/24_04_10_daily_certification%2091312b432d2b4f578bac9a3988b882ed/Untitled%2016.png)
 
 ### 실무에서의 Isolation Level
 

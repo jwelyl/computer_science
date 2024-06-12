@@ -6,14 +6,14 @@
 
 Database 테이블을 더 작은 Table들로 나누는 것 
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_08_daily_certification%20cf2c1e33294e42e0a6b4b1571a7c3685/Untitled.png)
+![Untitled](06_partitioning/24_06_08_daily_certification%20cf2c1e33294e42e0a6b4b1571a7c3685/Untitled.png)
 
 - Vertical Partioning
 - Horizontal Partioning
 
 ## Vertical Partioning
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_08_daily_certification%20cf2c1e33294e42e0a6b4b1571a7c3685/Untitled%201.png)
+![Untitled](06_partitioning/24_06_08_daily_certification%20cf2c1e33294e42e0a6b4b1571a7c3685/Untitled%201.png)
 
 Column을 기준으로 Table을 나누는 방식
 
@@ -23,13 +23,13 @@ Column을 기준으로 Table을 나누는 방식
 
 [Normalization](https://www.notion.so/Normalization-0fd21c574d814475bf33059d4c7766bb?pvs=21)
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_08_daily_certification%20cf2c1e33294e42e0a6b4b1571a7c3685/Untitled%202.png)
+![Untitled](06_partitioning/24_06_08_daily_certification%20cf2c1e33294e42e0a6b4b1571a7c3685/Untitled%202.png)
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_08_daily_certification%20cf2c1e33294e42e0a6b4b1571a7c3685/Untitled%203.png)
+![Untitled](06_partitioning/24_06_08_daily_certification%20cf2c1e33294e42e0a6b4b1571a7c3685/Untitled%203.png)
 
 ### Vertical Partitioning by Use Case
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_08_daily_certification%20cf2c1e33294e42e0a6b4b1571a7c3685/Untitled%204.png)
+![Untitled](06_partitioning/24_06_08_daily_certification%20cf2c1e33294e42e0a6b4b1571a7c3685/Untitled%204.png)
 
 화면에서는 content 데이터는 보여줄 필요가 없다.
 
@@ -46,7 +46,7 @@ FROM article;
 
 이를 해결하기 위해 다음과 같이 테이블을 분리할 수 있다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_08_daily_certification%20cf2c1e33294e42e0a6b4b1571a7c3685/Untitled%205.png)
+![Untitled](06_partitioning/24_06_08_daily_certification%20cf2c1e33294e42e0a6b4b1571a7c3685/Untitled%205.png)
 
 화면에서는 content 데이터는 보여줄 필요가 없다.
 
@@ -59,7 +59,7 @@ FROM article;
 
 따라서 필요한 attribute들만 빠르게 Main Memory에 가져올 수 있다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_08_daily_certification%20cf2c1e33294e42e0a6b4b1571a7c3685/Untitled%206.png)
+![Untitled](06_partitioning/24_06_08_daily_certification%20cf2c1e33294e42e0a6b4b1571a7c3685/Untitled%206.png)
 
 특정 게시글을 누르면 해당 게시글의 정보는 이미 article에서 가져와 FE에서 저장해 두었으므로 그 정보를 이용해 article_content 테이블을 조회해서 content를 가져오면 된다.
 
@@ -69,13 +69,13 @@ FROM article;
 
 ## Horizontal Partitioning
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_08_daily_certification%20cf2c1e33294e42e0a6b4b1571a7c3685/Untitled%207.png)
+![Untitled](06_partitioning/24_06_08_daily_certification%20cf2c1e33294e42e0a6b4b1571a7c3685/Untitled%207.png)
 
 Row를 기준으로 Table을 나누는 방식
 
 테이블의 Schema는 그대로 유지된다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_08_daily_certification%20cf2c1e33294e42e0a6b4b1571a7c3685/Untitled%208.png)
+![Untitled](06_partitioning/24_06_08_daily_certification%20cf2c1e33294e42e0a6b4b1571a7c3685/Untitled%208.png)
 
 사용자 수가 N명, 채널 수가 M명이면 최악의 경우 구독 수는 N * M이 되어 row가 N * M개가 된다.
 
@@ -87,13 +87,13 @@ N이 100만, M이 1000이면 row 개수는 10억개가 된다.
 
 ### Horizontal Partitioning by Hashing
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_08_daily_certification%20cf2c1e33294e42e0a6b4b1571a7c3685/Untitled%209.png)
+![Untitled](06_partitioning/24_06_08_daily_certification%20cf2c1e33294e42e0a6b4b1571a7c3685/Untitled%209.png)
 
 테이블을 여러개로 분리하고, **Partition Key(user_id)의 Hash결과에 따라 분리된 테이블에 저장한다.**
 
 **같은 schema를 가진 테이블이 여러 개 생긴다.**
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_08_daily_certification%20cf2c1e33294e42e0a6b4b1571a7c3685/Untitled%2010.png)
+![Untitled](06_partitioning/24_06_08_daily_certification%20cf2c1e33294e42e0a6b4b1571a7c3685/Untitled%2010.png)
 
 Partition Key로 조회할 경우, Partition Key의 결과에 따른 분리된 하나의 테이블에서 조회하면 된다.
 

@@ -8,7 +8,7 @@
 
 **Schedule 5**
 
-![concurrency5.jpeg](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_09_daily_certification%202dea1b0d8be64be49d1c2ffb2edc55d2/concurrency5.jpeg)
+![concurrency5.jpeg](03_3_recoverability/24_04_09_daily_certification%202dea1b0d8be64be49d1c2ffb2edc55d2/concurrency5.jpeg)
 
 Transaction 1의 r1(A), w1(A) operation 후,  Transaction 2의 r2(B), w2(B) operation이 수행되고. Transaction 1의 r1(B), w1(B) operation이 수행된 후에 Transaction 1을 commit한다. 
 
@@ -32,11 +32,11 @@ Unrecoverable Schedule은 rollback해도 이전 상태로 회복이 불가능하
 
 이러한 Schedule을 **Recoverable Schedule**이라고 하며 DBMS는 이런 Schedule만 허용한다.
 
-![recoverable_schedule1.jpeg](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_09_daily_certification%202dea1b0d8be64be49d1c2ffb2edc55d2/recoverable_schedule1.jpeg)
+![recoverable_schedule1.jpeg](03_3_recoverability/24_04_09_daily_certification%202dea1b0d8be64be49d1c2ffb2edc55d2/recoverable_schedule1.jpeg)
 
 Transaction 1이 Transaction 2를 의존하므로 Transaction 2가 먼저 commit되고 Transaction 1이 commit되어야 한다.
 
-![recoverable_schedule2.jpeg](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_09_daily_certification%202dea1b0d8be64be49d1c2ffb2edc55d2/recoverable_schedule2.jpeg)
+![recoverable_schedule2.jpeg](03_3_recoverability/24_04_09_daily_certification%202dea1b0d8be64be49d1c2ffb2edc55d2/recoverable_schedule2.jpeg)
 
 Transaction 1이 Transaction 2를 의존하므로 Transaction 2가 먼저 rollback되고 Transaction 1이 rollback되어야 한다.
 
@@ -48,11 +48,11 @@ Cascading Rollback은 처리하는 비용이 많이 든다.
 
 **데이터를 write한 Transaction이 commit/rollback한 다음에 데이터를 읽는 Schedule만 허용하자.**
 
-![cascading.jpeg](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_09_daily_certification%202dea1b0d8be64be49d1c2ffb2edc55d2/cascading.jpeg)
+![cascading.jpeg](03_3_recoverability/24_04_09_daily_certification%202dea1b0d8be64be49d1c2ffb2edc55d2/cascading.jpeg)
 
 만약 Transaction 2를 rollback해도 Transaction 2의 write의 결과에 의존하는 Transaction이 없기 때문에 Transaction 2만 rollback하면 된다.
 
-![cascading2.jpeg](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_09_daily_certification%202dea1b0d8be64be49d1c2ffb2edc55d2/cascading2.jpeg)
+![cascading2.jpeg](03_3_recoverability/24_04_09_daily_certification%202dea1b0d8be64be49d1c2ffb2edc55d2/cascading2.jpeg)
 
 Transaction 2를 rollback해도 Transaction 1을 rollback할 필요 없이 Transaction 1은 정상적으로 수행되는 것을 알 수 있다.
 
@@ -66,7 +66,7 @@ Cascadeless Schedule는 항상 문제가 없을까? 아니다. 다음 예시를 
 
 아래와 같은 Schedule로 가격을 낮추려 한다.
 
-![pizza.jpeg](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_09_daily_certification%202dea1b0d8be64be49d1c2ffb2edc55d2/pizza.jpeg)
+![pizza.jpeg](03_3_recoverability/24_04_09_daily_certification%202dea1b0d8be64be49d1c2ffb2edc55d2/pizza.jpeg)
 
 위 Schedule은 Cascadeless Schedule이다. 어떤 Transaction도 commit되지 않은 Transaction이 write한 데이터를 읽는 경우는 없기 때문이다. 그렇다면 문제가 없을까?
 
@@ -78,13 +78,13 @@ Cascadeless Schedule는 항상 문제가 없을까? 아니다. 다음 예시를 
 
 이러한 Schedule을 **Strict Schedule**이라고 한다.
 
-![strict_schedule.jpeg](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_09_daily_certification%202dea1b0d8be64be49d1c2ffb2edc55d2/strict_schedule.jpeg)
+![strict_schedule.jpeg](03_3_recoverability/24_04_09_daily_certification%202dea1b0d8be64be49d1c2ffb2edc55d2/strict_schedule.jpeg)
 
 rollback이 쉽다.
 
 **Recoverable, Cascadeless, Strict Schedule 관계**
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_09_daily_certification%202dea1b0d8be64be49d1c2ffb2edc55d2/Untitled.png)
+![Untitled](03_3_recoverability/24_04_09_daily_certification%202dea1b0d8be64be49d1c2ffb2edc55d2/Untitled.png)
 
 **Concurrency Control은 Serializability와 Recoverability를 제공한다.**
 

@@ -111,7 +111,7 @@ INDEX 이름(player_name_idx, team_id_backnumber_idx)을 생략하면 알아서 
 SHOW INDEX FROM player;
 ```
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled.png)
+![Untitled](05_1_index/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled.png)
 
 PRIMARY KEYf로 만들어진 index, team_id, backnumber로 이루어진 index, name으로 이루어진 index 3개가 존재한다.
 
@@ -123,7 +123,7 @@ PRIMARY KEYf로 만들어진 index, team_id, backnumber로 이루어진 index, n
 EXPLAIN SELECT * FROM player WHERE backnumber = 7;
 ```
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/5aa4567d-dfc3-4d8e-bc40-d58bd2003f1a.png)
+![Untitled](05_1_index/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/5aa4567d-dfc3-4d8e-bc40-d58bd2003f1a.png)
 
 **DBMS의 Optimizer가 알아서 적절하게 Index를 선택해준다.**
 
@@ -163,11 +163,11 @@ SELECT * FROM player FORCE INDEX(backnumber_idx) WHERE backnumber = 7;
 
 MEMBERS 테이블의 a attribute로 Index를 생성하면 다음과 같다. (실제론 B-Tree 형태이다.)
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%201.png)
+![Untitled](05_1_index/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%201.png)
 
 **Index는 a의 값들을 정렬된 형태로 가지고 있고, a의 값에 대응되는 MEMBERS 테이블의 튜플을 가리키는 포인터들을 가지고 있다.**
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%202.png)
+![Untitled](05_1_index/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%202.png)
 
 ```sql
 WHERE a = 9;
@@ -177,7 +177,7 @@ a = 9 인 튜플을 찾아서 처리를 한다고 해보자. (SELECT, DELETE, UP
 
 INDEX에서 a = 9인 튜플을 찾는데 이 때 a에 대해 정렬되어 있으므로 Binary Search로 O(logN)에 찾을 수 있다. a = 9인 튜플을 찾고 해당 포인터를 통해 MEMBERS 테이블의 튜플에 접근이 가능하다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%203.png)
+![Untitled](05_1_index/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%203.png)
 
 ```sql
 WHERE a = 7 AND b = 95;
@@ -187,27 +187,27 @@ a = 7이고, b= 95인 튜플을 찾아서 처리를 한다고 해보자.
 
 index에는 a에 관한 포인터만 존재한다. 일단 a = 7인 튜플들만 찾는다. a = 7인 튜플을 찾아 해당 포인터로 MEMBERS 튜플에 접근하고 해당 튜플의 b 값을 확인해야 한다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%204.png)
+![Untitled](05_1_index/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%204.png)
 
 a = 7인 튜플을 찾아갔는데 b = 80이므로 찾는 튜플이 아니다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%205.png)
+![Untitled](05_1_index/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%205.png)
 
 a = 7인 튜플을 찾아갔는데 b = 78이므로 찾는 튜플이 아니다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%206.png)
+![Untitled](05_1_index/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%206.png)
 
 a = 7인 다른 튜플을 찾아갔는데 b = 95이므로 찾는 튜플이 맞다. 따라서 처리한다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%207.png)
+![Untitled](05_1_index/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%207.png)
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%208.png)
+![Untitled](05_1_index/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%208.png)
 
 a에 대해서만 인덱스가 걸려있는데, b에 대한 조건으로도 찾아야 한다면, a에 해당하는 튜플들은 빠르게 찾을 수 있지만 해당 튜플들에 대하여 b에 대한 조건도 만족하는지 확인해야 하므로 결국 Full Scan이 된다.
 
 O(logN)으로 효율적으로 해당 튜플을 찾기 위해서는 a와 b로 생성한 index가 필요하다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%209.png)
+![Untitled](05_1_index/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%209.png)
 
 Index 테이블은 a, b에 대해 정렬되어 있는데 CREATE INDEX 명령문에 적어준 순서대로 a에 대해 우선적으로 정렬되고, a의 값이 같을 경우에는 b에 대해 정렬된다.
 
@@ -219,7 +219,7 @@ WHERE a = 7 and b = 95;
 
 a와 b 모두 index에 존재하므로 a, b 기준으로 Binary Search를 하면 된다. Binary Search를 할 때, a를 기준으로 먼저 일치하는 튜플을 찾고, a가 일치할 경우 b를 기준으로 일치하는 튜플을 찾는다. a, b에 대해 모두 정렬되어 있으므로 O(logN)에 찾을 수 있다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%2010.png)
+![Untitled](05_1_index/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%2010.png)
 
 하지만 아래 index로 b = 95인 값을 찾으려고 할 경우 성능이 좋지 못하다.
 
@@ -227,17 +227,17 @@ a와 b 모두 index에 존재하므로 a, b 기준으로 Binary Search를 하면
 WHERE b = 95;
 ```
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%209.png)
+![Untitled](05_1_index/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%209.png)
 
 index는 a에 대해 정렬되어 있고, a가 같을 경우에만 b에 대해 정렬되어 있기 때문이다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%2011.png)
+![Untitled](05_1_index/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%2011.png)
 
 이럴 경우 b에 대한 index를 따로 만들어서 사용해야 좋은 성능을 기대할 수 있다.
 
 **예제**
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%2012.png)
+![Untitled](05_1_index/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%2012.png)
 
 1,2 번째 쿼리는 {team_id, backnumber}로 인덱스가 생성되어 있으므로 빠르게 찾을 수 있다.
 
@@ -276,7 +276,7 @@ ex) {team_id, backnumber} index가 존재하는데 team_id로 index를 또 만�
 
 **조회 성능이 더 빠르다.**
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%2013.png)
+![Untitled](05_1_index/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%2013.png)
 
 {team_id, backnumber}로 이루어진 index가 존재하고 쿼리에서 가져오려는 값이 team_id, back_number일 경우 굳이 PLAYER 테이블에 접근할 필요 없이 index에 존재하는 값을 가져오면 된다. 실제 테이블에 접근할 필요가 없으므로 조회 성능이 더 빠르다.
 
@@ -305,7 +305,7 @@ ex) {team_id, backnumber} index가 존재하는데 team_id로 index를 또 만�
 - 테이블의 데이터가 적을 경우 (수십 ~ 수백건 정도)
 - **조회하려는 데이터가 테이블의 상당 부분을 차지할 때**
     
-    ![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%2014.png)
+    ![Untitled](05_1_index/24_04_24_daily_certification%20a7658437f4b74c589e19db1cf0890f3b/Untitled%2014.png)
     
     전체 고객이 100만명인데 SK를 사용하는 고객이 수십만명이 넘어갈 경우, Full Scan이 빠르다.
     

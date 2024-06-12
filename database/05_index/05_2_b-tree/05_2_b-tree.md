@@ -18,7 +18,7 @@ Average Case, Worst Case 모두 O(logN)이다.
 
 ### **B-Tree vs Self-Balancing Binary Search Tree**
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled.png)
+![Untitled](05_2_b-tree/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled.png)
 
 B-Tree, BST 모두 O(logN)인데 B-Tree가 사용되는 이유?
 
@@ -26,7 +26,7 @@ B-Tree, BST 모두 O(logN)인데 B-Tree가 사용되는 이유?
 
 ### Computer System
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%201.png)
+![Untitled](05_2_b-tree/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%201.png)
 
 - **CPU** : 프로세스(메모리에 올라온, 실행 중인 프로그램)가 실행되는 곳
 - **Memory(RAM)** : 프로세스 코드들과 코드 실행에 필요한 데이터, 결과 데이터가 상주하는 곳
@@ -36,7 +36,7 @@ B-Tree, BST 모두 O(logN)인데 B-Tree가 사용되는 이유?
 
 ### Secondary Storage
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%202.png)
+![Untitled](05_2_b-tree/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%202.png)
 
 - 데이터 처리 속도가 가장, 매우 느리다.
 - 데이터를 저장하는 용량이 가장 크다.
@@ -44,7 +44,7 @@ B-Tree, BST 모두 O(logN)인데 B-Tree가 사용되는 이유?
 
 ### Block
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%203.png)
+![Untitled](05_2_b-tree/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%203.png)
 
 - File System에서 데이터를 읽고 쓰는 논리적인 단위
 - Block 크기는 2의 거듭제곱으로 표현된다. (4KB, 8KB, 16KB …)
@@ -66,7 +66,7 @@ B-Tree, BST 모두 O(logN)인데 B-Tree가 사용되는 이유?
 
 아래 테이블에서 b 컬럼으로 데이터를 조회한다고 가정하자.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%204.png)
+![Untitled](05_2_b-tree/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%204.png)
 
 b에 대해서 Index를 생성해야 한다.
 
@@ -88,25 +88,25 @@ RBT도 AVL Tree와 비슷하므로 AVL Tree로만 설명한다.
 
 DB에 저장된 순서대로 AVL Tree에 삽입해 Index를 만들면 다음과 같다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%205.png)
+![Untitled](05_2_b-tree/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%205.png)
 
 *는 실제 DB Tuple을 가리키는 포인터이다.
 
 5를 찾는다고 가정해보자. 색칠된 노드만 Main Memory에 올라왔다는 의미이다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%206.png)
+![Untitled](05_2_b-tree/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%206.png)
 
 5는 6보다 작으므로 왼쪽 서브트리를 탐색해야 한다. **3이 있는 노드를 Main Memory에 올린다.**
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%207.png)
+![Untitled](05_2_b-tree/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%207.png)
 
 5는 3보다 크므로 오른쪽 서브트리를 탐색해야 한다. **4가 있는 노드를 Main Memory에 올린다.**
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%208.png)
+![Untitled](05_2_b-tree/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%208.png)
 
 5는 4보다 크므로 오른쪽 서브트리를 탐색해야 한다. **5가 있는 노드를 Main Memory에 올린다.**
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%209.png)
+![Untitled](05_2_b-tree/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%209.png)
 
 5가 찾으려는 데이터이므로, Index에서의 조회는 끝났다. 이제 포인터를 통해 실제로 데이터를 가져와야 한다.
 
@@ -118,17 +118,17 @@ DB에 저장된 순서대로 AVL Tree에 삽입해 Index를 만들면 다음과 
 
 DB에 저장된 순서대로 5-dim B-Tree에 삽입해 Index를 만들면 다음과 같다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%2010.png)
+![Untitled](05_2_b-tree/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%2010.png)
 
 마찬가지로 5를 찾는다고 가정해보자.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%2011.png)
+![Untitled](05_2_b-tree/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%2011.png)
 
 5는 4보다 크고 8보다 작으므로 2번째 서브트리를 탐색해야 한다. 
 
 **두 번째 자식 노드를 Main Memory에 올린다.**
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%2012.png)
+![Untitled](05_2_b-tree/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%2012.png)
 
 데이터 5가 존재하므로, Index에서의 조회는 끝났다. 이제 포인터를 통해 실제로 데이터를 가져와야 한다.
 
@@ -138,7 +138,7 @@ DB에 저장된 순서대로 5-dim B-Tree에 삽입해 Index를 만들면 다음
 
 ### 5-dim B-Tree Index vs AVL Tree
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%2013.png)
+![Untitled](05_2_b-tree/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%2013.png)
 
 |  | 5-dim B-Tree | AVL Tree |
 | --- | --- | --- |
@@ -166,7 +166,7 @@ AVL Tree의 경우 자식 수가 1~2개이다.
 
 **Best Case (모든 노드가 자식 노드를 101개 가질 때, Key를 100개 가질 때)**
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%2014.png)
+![Untitled](05_2_b-tree/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%2014.png)
 
 100 * (101^0 + 101^1 + 101^2 + 101^3) = 100 * (101^4 - 1) / (101 - 1) = 101^4 - 1 > 10^8
 
@@ -178,13 +178,13 @@ AVL Tree의 경우 자식 수가 1~2개이다.
 
 **(단 root는 제외, Key 1개, 자녀 2개 가능)**
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%2015.png)
+![Untitled](05_2_b-tree/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%2015.png)
 
 Worst Case에도 26만개가 넘는 데이터가 4개 Level(0 ~3) 안에 저장되고 접근이 가능다.
 
 **Average Case**
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%2016.png)
+![Untitled](05_2_b-tree/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%2016.png)
 
 4개 Level로 못해도 26만개, 최대 1억개 이상의 데이터를 저장할 수 있고 접근할 수 있다.
 
@@ -192,7 +192,7 @@ AVL Tree 같은 이진트리로 26만개의 데이터를 저장하고 접근하�
 
 ## 정리
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%2017.png)
+![Untitled](05_2_b-tree/24_06_07_daily_certification%209ee1073830e94172901551f5f5f53d18/Untitled%2017.png)
 
 ### Self-Balancing BST, Hash Index
 

@@ -418,7 +418,7 @@ EMPLOYEE 테이블의 attributes들을 두 개의 집합 X, Y로 나누어보자
 
 ### Functional Dependency 예시
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_22_daily_certification%20b338dd202f83468da5167a7c1a69df87/Untitled.png)
+![Untitled](04_1_db_anomalies_functional_dependency/24_04_22_daily_certification%20b338dd202f83468da5167a7c1a69df87/Untitled.png)
 
 **X → Y 라고 해서 항상 Y → X 를 의미하지 않는다.**
 
@@ -444,13 +444,13 @@ company 값이 항상 ez.라면 {} → {company} 가 성립한다.
 
 ### Trivial Functional Dependency
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_22_daily_certification%20b338dd202f83468da5167a7c1a69df87/Untitled%201.png)
+![Untitled](04_1_db_anomalies_functional_dependency/24_04_22_daily_certification%20b338dd202f83468da5167a7c1a69df87/Untitled%201.png)
 
 **Y ⊆ X 인 경우, X → Y는 항상 성립한다. 이러한 FD를 Trivial FD라고 한다.**
 
 ### Non-trivial Functional Dependency
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_22_daily_certification%20b338dd202f83468da5167a7c1a69df87/Untitled%202.png)
+![Untitled](04_1_db_anomalies_functional_dependency/24_04_22_daily_certification%20b338dd202f83468da5167a7c1a69df87/Untitled%202.png)
 
 **X → Y 이고 Y가 X의 부분집합이 아닌 경우, 이러한 FD를 Non-trivial FD라고 한다.**
 
@@ -458,7 +458,7 @@ company 값이 항상 ez.라면 {} → {company} 가 성립한다.
 
 ### Partial Functional Dependency
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_22_daily_certification%20b338dd202f83468da5167a7c1a69df87/Untitled%203.png)
+![Untitled](04_1_db_anomalies_functional_dependency/24_04_22_daily_certification%20b338dd202f83468da5167a7c1a69df87/Untitled%203.png)
 
 **X → Y 이고 어떤 X’ ⊂ X일 때, X’ → Y 인 경우 X → Y 는 Partial FD 이다.**
 
@@ -468,7 +468,7 @@ company 값이 항상 ez.라면 {} → {company} 가 성립한다.
 
 ### Full Functional Dependency
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_22_daily_certification%20b338dd202f83468da5167a7c1a69df87/Untitled%204.png)
+![Untitled](04_1_db_anomalies_functional_dependency/24_04_22_daily_certification%20b338dd202f83468da5167a7c1a69df87/Untitled%204.png)
 
 **X → Y 이고 모든 X’ ⊂ X일 때, X’ → Y 가 성립하지 않는 경우,  X → Y 는  Full FD 이다.**
 

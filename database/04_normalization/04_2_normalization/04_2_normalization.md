@@ -12,7 +12,7 @@
 
 정규화되기 위해 준수해야 하는 rule들을 Normal Froms (NF)이라고 한다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_23_daily_certification%20075e2663cd3548308ea27d5e507c3511/Untitled.png)
+![Untitled](04_2_normalization/24_04_23_daily_certification%20075e2663cd3548308ea27d5e507c3511/Untitled.png)
 
 초기 테이블부터 1NF부터 순차적으로 만족하도록 테이블 구조를 조정한다.
 
@@ -79,11 +79,11 @@ account_id는 PK이므로 아래와 같은 FD가 성립한다.
 
 이를 그림으로 나타내면 다음과 같다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_23_daily_certification%20075e2663cd3548308ea27d5e507c3511/Untitled%201.png)
+![Untitled](04_2_normalization/24_04_23_daily_certification%20075e2663cd3548308ea27d5e507c3511/Untitled%201.png)
 
 **EMPLOYEE_ACCOUNT** 에서는 다음과 같은 FD가 성립한다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_23_daily_certification%20075e2663cd3548308ea27d5e507c3511/Untitled%202.png)
+![Untitled](04_2_normalization/24_04_23_daily_certification%20075e2663cd3548308ea27d5e507c3511/Untitled%202.png)
 
 **{account_id} → {bank_name, account_num, class, ratio,  empl_id, empl_name, card_id}**
 
@@ -171,19 +171,19 @@ c202 |
 
 Non-prime Attribute는 class, ratio, empl_id, empl_name이다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_23_daily_certification%20075e2663cd3548308ea27d5e507c3511/Untitled%203.png)
+![Untitled](04_2_normalization/24_04_23_daily_certification%20075e2663cd3548308ea27d5e507c3511/Untitled%203.png)
 
 **{account_id, card_id} → {bank_name, account_num, class, ratio, empl_id, empl_name}**
 
 그런데 Non-prime Attribute인 class, ratio, empl_id, empl_name에 대해서는 다음도 성립한다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_23_daily_certification%20075e2663cd3548308ea27d5e507c3511/Untitled%204.png)
+![Untitled](04_2_normalization/24_04_23_daily_certification%20075e2663cd3548308ea27d5e507c3511/Untitled%204.png)
 
 **{account_id} → {class, ratio, empl_id, empl_name}**
 
 즉, 모든 Non-prime Attribute들이 Key {account_id, card_id}에 대해 partially dependent하다.
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_23_daily_certification%20075e2663cd3548308ea27d5e507c3511/Untitled%205.png)
+![Untitled](04_2_normalization/24_04_23_daily_certification%20075e2663cd3548308ea27d5e507c3511/Untitled%205.png)
 
 **{bank_name, account_num} → {class, ratio, empl_id, empl_name}**
 
@@ -267,7 +267,7 @@ ACCOUNT_CARD 테이블을 분리한다. 이 때, EMPLOYEE_ACCOUNT와 join이 가
 
 데이터 중복이 보인다. 왜 그럴까?
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_23_daily_certification%20075e2663cd3548308ea27d5e507c3511/Untitled%206.png)
+![Untitled](04_2_normalization/24_04_23_daily_certification%20075e2663cd3548308ea27d5e507c3511/Untitled%206.png)
 
 {account_id} → {empl_id}, {empl_id} → {empl_name} 가 존재한다.
 
@@ -279,7 +279,7 @@ ACCOUNT_CARD 테이블을 분리한다. 이 때, EMPLOYEE_ACCOUNT와 join이 가
 
 ### Transitive Functional Dependency
 
-![Untitled](%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%20ef1ee6d7779941e38c35974449a20434/24_04_23_daily_certification%20075e2663cd3548308ea27d5e507c3511/Untitled%207.png)
+![Untitled](04_2_normalization/24_04_23_daily_certification%20075e2663cd3548308ea27d5e507c3511/Untitled%207.png)
 
 **X → Y 이고 Y → Z 이며, Y, Z가 Key의 부분 집합이 아닐 경우 X → Z 가 성립한다.**
 
